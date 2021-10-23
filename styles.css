@@ -1,0 +1,6 @@
+/* Styles when marked as done */
+
+.task-done {
+  opacity: 0.3;
+  text-decoration: line-through;
+}
