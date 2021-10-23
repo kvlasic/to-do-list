@@ -1,30 +1,21 @@
-/*
-MUST HAVE
- 1. Create a todo from user input
- 2. Mark todo as done
- 3. Delete a todo
- 4. Edit a todo
-COULD HAVE
- 5. Store list in local storage
- 6. 'Enter' has same functionality as clicking 'submit' button
- 7. User input is cleared after it is added to list
-NICE TO HAVE 
- 8. Reset list
- 9. List category / title
-*/
-
+// Add items based on user input
 function getInputValue() {
-  // Selecting the input element and get its value
-  let inputVal = document.getElementById("myInput").value;
-  let toDoList = document.getElementById("list");
+  let inputVal = document.getElementById("myInput");
+  const ul = document.getElementById("list");
+  const liElement = document.createElement("li");
+  liElement.appendChild(document.createTextNode(inputVal.value));
+  // If user doesn't write anything he gets a warning alert
+  if (inputVal === "") {
+    alert("You must write something!");
+  } else {
+    ul.appendChild(liElement);
+    inputVal.value = ""; // removes text from input field after being submitted
+  }
 
-  let task = document.createElement("li");
-  task.appendChild(document.createTextNode(inputVal));
-  toDoList.appendChild(task);
-  task.addEventListener("click", () => toggleTaskDone(task));
-}
-
-// Toggle class
-function toggleTaskDone(task) {
-  task.classList.toggle("task-done");
+  // Add X to remove items
+  let span = document.createElement("span");
+  let xSymbol = document.createTextNode("\u00D7"); // \u00D7 is unicode for x symbol I guess
+  span.className = "delete"; // span element gets a class named delete
+  span.appendChild(xSymbol);
+  liElement.appendChild(span);
 }
