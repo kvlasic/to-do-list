@@ -9,9 +9,18 @@
   </head>
 
   <body>
-    <input type="text" placeholder="Type in a task..." id="myInput" />
-    <button type="button" onclick="getInputValue();">Submit</button>
-    <ul id="list"></ul>
+    <form onsubmit="addNewTask(event)">
+      <input
+        name="new-item"
+        type="text"
+        placeholder="Type in a task..."
+        id="myInput"
+        required
+        minlength="4"
+      />
+      <input type="submit" value="add task" />
+    </form>
+    <ul id="todo-list"></ul>
     <script src="main.js"></script>
   </body>
 </html>
