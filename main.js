@@ -1,31 +1,45 @@
-/*
-MUST HAVE
- 1. Create a todo from user input - DONE
- 2. Mark todo as done - DONE
- 3. Delete a todo - IN PROGRESS
- 4. Edit a todo
-COULD HAVE
- 5. Store list in local storage
- 6. 'Enter' has same functionality as clicking 'submit' button (use 'form'?)
- 7. User input is cleared after it is added to list
-NICE TO HAVE 
- 8. Add checkbox 
- 9. Reset list
- 10. List category / title
-*/
+// Object-Oriented Style
+// Not going to leave data in HTML
+// HTML is just for visuals
+const ul = document.querySelector("ul");
+const form = document.querySelector("form");
 
-let todoListTasks = [];
+let todos = [];
+let newTaskId = 0;
 
-function addNewTask(event) {
-  const newItem = event.target.elements["new-item"];
-  todoListTasks.unshift(newItem.value); // check whether prepend works instead
-  newItem.value = "";
-  updateTheScreen();
+function addToDoListItem(event) {
+    event.preventDefault()
+    let inputText = event.target.elements["newTask"].value;
+    event.target.elements["newTask"].value = "";
+    let newObject = { id: newTaskId, text: inputText, completed: false };
+    todos.push(newObject);
+    newTaskId++;
+    drawList();
 }
 
-function updateTheScreen() {
-  todoList.innerHTML = "";
-  todoListTasks.forEach((item, index) => {
-    todoList.innerHTML += `<li></li>`;
-  });
+function removeToDoListItem(id) {
+    const index = todos.findIndex(item => item.id === id)
+    todos.splice(index, 1)
+    drawList();
 }
+
+function updateToDoListItem(id, newData) {
+    drawList();
+}
+
+// update the whole list
+function drawList() {
+    console.log(todos);
+    ul.innerHTML = "";
+    todos.forEach((todo) => {
+        const newToDo = `<li id="${todo.id}">${todo.text}<button onclick="removeToDoListItem(${todo.id})">X</button></li>`;
+        ul.insertAdjacentHTML("beforeend", newToDo);
+    });
+}
+// drawList();
+
+
+// form.addEventListener("submit", (event) => {
+//   event.preventDefault()
+//   // console.log(event)
+// })
