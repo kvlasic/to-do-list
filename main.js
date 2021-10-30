@@ -14,35 +14,6 @@ NICE TO HAVE
  10. List category / title
 */
 
-// Add items based on user input
-// function getInputValue() {
-//   let inputVal = document.getElementById("myInput");
-//   const todoList = document.getElementById("list");
-//   const task = document.createElement("li");
-//   task.appendChild(document.createTextNode(inputVal.value));
-//   // If user doesn't write anything he gets a warning alert
-//   if (inputVal === "") {
-//     alert("You must write something!");
-//   } else {
-//     todoList.appendChild(task);
-//     inputVal.value = ""; // removes text from input field after being submitted
-//   }
-
-//   task.addEventListener("click", () => toggleTaskDone(task));
-
-//   // Add X to remove items
-//   let span = document.createElement("span");
-//   let xSymbol = document.createTextNode("\u00D7"); // \u00D7 is unicode for x symbol I guess
-//   span.className = "delete"; // span element gets a class named delete
-//   span.appendChild(xSymbol);
-//   task.appendChild(span);
-// }
-
-// // Toggle class
-// function toggleTaskDone(task) {
-//   task.classList.toggle("task-done");
-// }
-
 let todoListTasks = [];
 
 function addNewTask(event) {
