@@ -38,7 +38,8 @@ function updateToDoListItem(id, newData) {
 function drawList() {
     ul.innerHTML = "";
     filteredTodos.forEach((todo) => {
-        const newToDo = `<li id="${todo.id}">${todo.text}<button onclick="removeToDoListItem(${todo.id})">X</button></li>`;
+        // checkboxes to be used to mark items as complete
+        const newToDo = `<li id="${todo.id}"><input type="checkbox">${todo.text}<button onclick="removeToDoListItem(${todo.id})" class="delete-button">X</button></li>`;
         ul.insertAdjacentHTML("beforeend", newToDo);
     });
 }
