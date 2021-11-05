@@ -10,18 +10,18 @@ let filteredTodos = [];
 let newTaskId = 0;
 
 function addToDoListItem(event) {
-    event.preventDefault()
+    event.preventDefault();
     let newObject = { id: newTaskId, text: input.value, completed: false };
     input.value = "";
     todos.unshift(newObject);
     newTaskId++;
-    drawList();
+    filterTodos(); // draw filtered todos as todos have been updated
 }
 
 function removeToDoListItem(id) {
     const index = todos.findIndex(item => item.id === id)
     todos.splice(index, 1)
-    drawList();
+    filterTodos(); // draw filtered todos as todos have been updated
 }
 
 const filterTodos = () => {
@@ -31,22 +31,14 @@ const filterTodos = () => {
 }
 
 function updateToDoListItem(id, newData) {
-    drawList();
+    filterTodos(); // draw filtered todos as todos have been updated
 }
 
 // update the whole list
 function drawList() {
-    console.log(todos);
     ul.innerHTML = "";
     filteredTodos.forEach((todo) => {
         const newToDo = `<li id="${todo.id}">${todo.text}<button onclick="removeToDoListItem(${todo.id})">X</button></li>`;
         ul.insertAdjacentHTML("beforeend", newToDo);
     });
 }
-// drawList();
-
-
-// form.addEventListener("submit", (event) => {
-//   event.preventDefault()
-//   // console.log(event)
-// })
