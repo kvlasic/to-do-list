@@ -41,8 +41,31 @@ li {
   padding: 0.25rem;
 }
 
-/* Styles when item marked as completed */
-.task.completed {
-  opacity: 0.3;
+
+ul li {
+  cursor: pointer;
+  padding-left: 2em;
+  position: relative;
+  transition: 0.2s;
+}
+
+/* styles when item marked as completed */
+/* TODO: change background so that it doesn't take up the whole row */
+ul li.completed {
+  background: rgb(220,220,220);
+  color: white;
   text-decoration: line-through;
+}
+
+/* add checked mark */
+
+ul li.completed::before {
+  border: 2px solid green;
+  border-width: 0 2px 2px 0;
+  content: '';
+  height: 1em;
+  left: 1em;
+  position: absolute;
+  transform: rotate(45deg);
+  width: 7px;
 }

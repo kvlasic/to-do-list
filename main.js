@@ -47,6 +47,13 @@ const filterTodos = () => {
     drawList();
 }
 
+// add a "checked" symbol when clicking on a todo
+ul.addEventListener('click', function(event) {
+    if (event.target.tagName === "LI") {
+        event.target.classList.toggle('completed');
+    }
+}, false);
+
 function updateToDoListItem(id, newData) {
     filterTodos(); // draw filtered todos as todos have been updated
 }
