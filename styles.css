@@ -41,7 +41,7 @@ li {
     font-family: 'Roboto', sans-serif;
     font-size: 1rem;
     font-weight: bold;
-    padding: calc(.5rem - 1px) calc(1rem - 1px);
+    padding: .5rem 1rem;
     letter-spacing: 2px;
     cursor: pointer;
     width: auto;
@@ -59,6 +59,8 @@ select,
 .save-button,
 .edit-button {
     margin: 0.5rem;
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
 }
 
 .delete-button {
@@ -67,14 +69,21 @@ select,
 
 form,
 #taskInput {
-    width: 80%;
+    width: 100%;
+}
+
+form {
+    margin: 1.5rem 0;
+    display: flex;
 }
 
 ul li {
-  cursor: pointer;
-  padding: 0.3rem 2em;
-  position: relative;
-  transition: 0.2s;
+    cursor: pointer;
+    padding: 0.3rem 2em;
+    position: relative;
+    transition: 0.2s;
+    padding-left: 0;
+    text-transform: capitalize;
 }
 
 
@@ -103,6 +112,7 @@ input {
     border-radius: .25rem;
     box-shadow: rgba(0, 0, 0, 0.02) 0 1px 3px 0;
     box-sizing: border-box;
+    margin-left: 0;
 }
 
 select {
@@ -112,4 +122,6 @@ select {
     box-shadow: rgba(0, 0, 0, 1) 0 1px 3px 0;
     width: auto;
     padding: 0 10px;
+    font-family: 'Roboto', sans-serif;
+    font-size: 1rem;
 }
