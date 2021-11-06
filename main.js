@@ -2,14 +2,18 @@
 // Not going to leave data in HTML
 // HTML is just for visuals
 const ul = document.querySelector("ul");
+const notCompleted = document.querySelector("#not-completed");
+const completed = document.querySelector("#completed");
 const form = document.querySelector("form");
 const input = document.querySelector("#taskInput");
 
 let todos = JSON.parse(localStorage.getItem("todos")) || [];
 let filteredTodos = []; // MVVM
+let completedTodos = document.querySelector(".completed");
 let newTaskId = 0;
 let editingActiveId = null;
 let prioritisationEnabled = true;
+
 
 function addToDoListItem(event) {
     newTaskId = todos.length + 1;
@@ -54,12 +58,14 @@ const filterTodos = () => {
     drawList();
 }
 
-// toggle completed styles when task is marked as complete
-ul.addEventListener('click', function(event) {
-    if (event.target.tagName === "LI") {
-        event.target.classList.toggle('completed');
-    }
-}, false);
+const toggleCompleted = (id) => {
+    const item = todos.find(i => i.id === id)
+    const index = todos.findIndex(i => i.id === id)
+    item.completed = !item.completed;
+    todos.splice(index, 1, item)
+    filterTodos(); // draw filtered todos as todos have been updated
+    localStorage.setItem("todos", JSON.stringify(todos));
+}
 
 function updateToDoListItem(id, newData) {
     filterTodos(); // draw filtered todos as todos have been updated
@@ -68,7 +74,38 @@ function updateToDoListItem(id, newData) {
 // update the whole list
 function drawList() {
     ul.innerHTML = "";
+    completed.innerHTML = "";
+    notCompleted.innerHTML = "";
     filteredTodos
+        .filter((todo) => {
+            return !todo.completed
+        })
+        .sort((a, b) => {
+            if (prioritisationEnabled) {
+                return a.priority - b.priority
+            }
+            return 1
+        })
+        .forEach((todo) => {
+                const newToDo = `
+                <li id="${todo.id}" onclick="toggleCompleted(${todo.id})" class="${todo.completed ? "completed" : ""} ">
+                    <!--conditionally show editing or not editing version -->
+                    ${editingActiveId===todo.id?`
+                    <input type='text' value=${todo.text} id="newText"></input>
+                    <button onclick="saveToDoListItem(${todo.id})" class="save-button">Save</button>
+                    `
+                    :`${todo.text} <button id=priority>${["must", "should","could"][todo.priority]}</button>
+                    <button onclick="editToDoListItem(${todo.id})" class="edit-button">Edit</button>
+                    `
+                    }
+                    <button onclick="removeToDoListItem(${todo.id})" class="delete-button">X</button>
+                </li>`;
+                notCompleted.insertAdjacentHTML("beforeend", newToDo);
+    });
+    filteredTodos
+        .filter((todo) => {
+            return todo.completed
+        })
         .sort((a, b) => {
             if (prioritisationEnabled) {
                 return a.priority - b.priority
@@ -80,7 +117,7 @@ function drawList() {
         })
         .forEach((todo) => {
                 const newToDo = `
-                <li id="${todo.id}">
+                <li id="${todo.id}" onclick="toggleCompleted(${todo.id})" class="${todo.completed ? "completed" : ""} ">
                     <!--conditionally show editing or not editing version -->
                     ${editingActiveId===todo.id?`
                     <input type='text' value=${todo.text} id="newText"></input>
@@ -95,7 +132,7 @@ function drawList() {
                     <button onclick="removeToDoListItem(${todo.id})" class="delete-button">X</button>
                     </div>
                 </li>`;
-                ul.insertAdjacentHTML("beforeend", newToDo);
+                completed.insertAdjacentHTML("beforeend", newToDo);
     });
 }
 
