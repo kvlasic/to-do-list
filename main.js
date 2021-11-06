@@ -5,8 +5,6 @@ const ul = document.querySelector("ul");
 const form = document.querySelector("form");
 const input = document.querySelector("#taskInput");
 
-
-
 let todos = JSON.parse(localStorage.getItem("todos")) || [];
 let filteredTodos = []; // MVVM
 let newTaskId = 0;
@@ -56,7 +54,7 @@ const filterTodos = () => {
     drawList();
 }
 
-// add a "checked" symbol when clicking on a todo
+// toggle completed styles when task is marked as complete
 ul.addEventListener('click', function(event) {
     if (event.target.tagName === "LI") {
         event.target.classList.toggle('completed');
