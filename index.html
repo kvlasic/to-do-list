@@ -13,6 +13,11 @@
     <h1>What are you going to do?</h1>
     <form onsubmit="addToDoListItem(event)">
         <input id="taskInput" name="taskInput" type="text" class="task-input" placeholder="Type in a task" onkeyup="filterTodos()" required></input>
+        <select name="priority">
+            <option value="0">Must</option>
+            <option value="1">Should</option>
+            <option value="2">Could</option>
+        </select>
         <input type="submit" value="Submit" class="submit"></input>
     </form>
     <ul></ul>
