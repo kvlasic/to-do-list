@@ -7,6 +7,7 @@
 
 body {
     font-family: 'Roboto', sans-serif;
+    font-size: 16px;
     padding: 2rem;
 }
 
@@ -18,73 +19,38 @@ li {
     padding-left: 1rem;
 }
 
-.task-input {
+.task-input,
+#newText {
     padding: 0.5rem;
 }
 
-.submit {
-    background-color: black;
-    border-radius: 2rem;
-    color: white;
+.submit,
+.delete-button,
+.edit-button,
+.save-button {
+    background-color: rgb(53, 53, 53);
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 0.3rem;
+    box-shadow: rgba(0, 0, 0, 1) 0 1px 3px 0;
+    color: rgba(255, 255, 255, 0.85);
+    font-size: 16px;
     font-family: 'Roboto', sans-serif;
     font-size: 1rem;
     font-weight: bold;
-    margin: 1rem;
-    padding: 0.5rem;
+    padding: calc(.5rem - 1px) calc(1rem - 1px);
     letter-spacing: 2px;
+    cursor: pointer;
+    width: auto;
+}
+
+.submit,
+.save-button,
+.edit-button {
+    margin-left: 1rem;
 }
 
 .delete-button {
     background-color: rgba(255, 99, 71, 1);
-}
-
-.edit-button {
-    background-color: rgb(53, 53, 53);
-}
-
-.delete-button,
-.edit-button {
-    align-items: center;
-    border: 1px solid rgba(0, 0, 0, 0.1);
-    border-radius: .25rem;
-    box-shadow: rgba(0, 0, 0, 0.02) 0 1px 3px 0;
-    box-sizing: border-box;
-    color: rgba(255, 255, 255, 0.85);
-    cursor: pointer;
-    display: inline-flex;
-    font-family: system-ui, -apple-system, system-ui, "Helvetica Neue", Helvetica, Arial, sans-serif;
-    font-size: 16px;
-    font-weight: 600;
-    justify-content: center;
-    line-height: 1.25;
-    padding: calc(.5rem - 1px) calc(1rem - 1px);
-    position: relative;
-    text-decoration: none;
-    transition: all 250ms;
-    user-select: none;
-    -webkit-user-select: none;
-    touch-action: manipulation;
-    vertical-align: baseline;
-    width: auto;
-}
-
-.delete-button:hover,
-.delete-button:focus {
-    border-color: rgba(0, 0, 0, 0.15);
-    box-shadow: rgba(0, 0, 0, 0.1) 0 4px 12px;
-    color: rgba(0, 0, 0, 0.65);
-}
-
-.delete-button:hover {
-    transform: translateY(-1px);
-}
-
-.delete-button:active {
-    background-color: #ff0000;
-    border-color: rgba(0, 0, 0, 0.15);
-    box-shadow: rgba(0, 0, 0, 0.06) 0 2px 4px;
-    color: rgba(0, 0, 0, 0.65);
-    transform: translateY(0);
 }
 
 #taskInput {
@@ -97,4 +63,14 @@ li {
 .completed {
     opacity: 0.3;
     text-decoration: line-through;
+}
+
+input {
+    border-radius: .25rem;
+    box-shadow: rgba(0, 0, 0, 0.02) 0 1px 3px 0;
+    box-sizing: border-box;
+}
+
+ul li {
+    padding: 0.3rem;
 }
