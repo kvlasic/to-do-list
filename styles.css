@@ -41,7 +41,7 @@ li {
     font-family: 'Roboto', sans-serif;
     font-size: 1rem;
     font-weight: bold;
-    padding: calc(.5rem - 1px) calc(1rem - 1px);
+    padding: .5rem 1rem;
     letter-spacing: 2px;
     cursor: pointer;
     width: auto;
@@ -71,10 +71,10 @@ form,
 }
 
 ul li {
-  cursor: pointer;
-  padding: 0.3rem 2em;
-  position: relative;
-  transition: 0.2s;
+    cursor: pointer;
+    padding: 0.3rem 2em;
+    position: relative;
+    transition: 0.2s;
 }
 
 
@@ -116,4 +116,6 @@ select {
     box-shadow: rgba(0, 0, 0, 1) 0 1px 3px 0;
     width: auto;
     padding: 0 10px;
+    font-family: 'Roboto', sans-serif;
+    font-size: 1rem;
 }
