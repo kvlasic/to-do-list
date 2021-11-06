@@ -62,10 +62,8 @@ function updateToDoListItem(id, newData) {
 function drawList() {
     ul.innerHTML = "";
     filteredTodos.forEach((todo) => {
-                // checkboxes to be used to mark items as complete
                 const newToDo = `
                 <li id="${todo.id}">
-                    <input type="checkbox">
                     <!--conditionally show editing or not editing version -->
                     ${editingActiveId===todo.id?`
                     <input type='text' value=${todo.text} id="newText"></input>
