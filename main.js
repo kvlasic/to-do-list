@@ -14,6 +14,7 @@ let editingActiveId = null;
 let prioritisationEnabled = true;
 
 function addToDoListItem(event) {
+    newTaskId = todos.length + 1;
     event.preventDefault();
     let newObject = { id: newTaskId, text: input.value, completed: false, priority: parseInt(event.target.elements["priority"].value) };
     console.log(newObject);
@@ -70,13 +71,13 @@ function updateToDoListItem(id, newData) {
 function drawList() {
     ul.innerHTML = "";
     filteredTodos
-    .sort((a, b) => { 
-        if (prioritisationEnabled) {
-            return a.priority - b.priority
-        }
-        return 1
-    })
-    .forEach((todo) => {
+        .sort((a, b) => {
+            if (prioritisationEnabled) {
+                return a.priority - b.priority
+            }
+            return 1
+        })
+        .forEach((todo) => {
                 const newToDo = `
                 <li id="${todo.id}">
                     <!--conditionally show editing or not editing version -->
