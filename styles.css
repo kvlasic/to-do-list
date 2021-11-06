@@ -62,7 +62,7 @@ li {
 
 ul li {
   cursor: pointer;
-  padding-left: 2em;
+  padding: 0.3rem 2em;
   position: relative;
   transition: 0.2s;
 }
@@ -88,19 +88,8 @@ ul li.completed::before {
   width: 7px;
 }
 
-/* Styles when item marked as completed */
-
-.completed {
-    opacity: 0.3;
-    text-decoration: line-through;
-}
-
 input {
     border-radius: .25rem;
     box-shadow: rgba(0, 0, 0, 0.02) 0 1px 3px 0;
     box-sizing: border-box;
-}
-
-ul li {
-    padding: 0.3rem;
 }
