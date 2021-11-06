@@ -42,7 +42,7 @@ li {
 }
 
 /* Styles when item marked as completed */
-.completed {
+.task.completed {
   opacity: 0.3;
   text-decoration: line-through;
 }
