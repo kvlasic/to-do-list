@@ -27,6 +27,7 @@ li {
 
 /* Buttons */
 
+#priority,
 .submit,
 .delete-button,
 .edit-button,
@@ -46,47 +47,62 @@ li {
     width: auto;
 }
 
+#priority {
+    background-color: white;
+    color: black;
+}
+
+#priority,
+input,
+select,
 .submit,
 .save-button,
 .edit-button {
-    margin-left: 1rem;
+    margin: 0.5rem;
 }
 
 .delete-button {
     background-color: rgba(255, 99, 71, 1);
 }
 
+form,
 #taskInput {
     width: 80%;
 }
 
 ul li {
-  cursor: pointer;
-  padding-left: 2em;
-  position: relative;
-  transition: 0.2s;
+    cursor: pointer;
+    padding-left: 2em;
+    position: relative;
+    transition: 0.2s;
 }
 
+
 /* styles when item marked as completed */
+
+
 /* TODO: change background so that it doesn't take up the whole row */
+
 ul li.completed {
-  background: rgb(220,220,220);
-  color: white;
-  text-decoration: line-through;
+    background: rgb(220, 220, 220);
+    color: white;
+    text-decoration: line-through;
 }
+
 
 /* add checked mark */
 
 ul li.completed::before {
-  border: 2px solid green;
-  border-width: 0 2px 2px 0;
-  content: '';
-  height: 1em;
-  left: 1em;
-  position: absolute;
-  transform: rotate(45deg);
-  width: 7px;
+    border: 2px solid green;
+    border-width: 0 2px 2px 0;
+    content: '';
+    height: 1em;
+    left: 1em;
+    position: absolute;
+    transform: rotate(45deg);
+    width: 7px;
 }
+
 
 /* Styles when item marked as completed */
 
@@ -103,4 +119,13 @@ input {
 
 ul li {
     padding: 0.3rem;
+}
+
+select {
+    height: 2.1rem;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 0.3rem;
+    box-shadow: rgba(0, 0, 0, 1) 0 1px 3px 0;
+    width: auto;
+    padding: 0 10px;
 }

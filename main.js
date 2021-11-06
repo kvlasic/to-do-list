@@ -85,7 +85,7 @@ function drawList() {
                     <input type='text' value=${todo.text} id="newText"></input>
                     <button onclick="saveToDoListItem(${todo.id})" class="save-button">Save</button>
                     `
-                    :`${todo.text} ${["must", "should","could"][todo.priority]}
+                    :`${todo.text} <button id=priority>${["must", "should","could"][todo.priority]}</button>
                     <button onclick="editToDoListItem(${todo.id})" class="edit-button">Edit</button>
                     `
                     }
