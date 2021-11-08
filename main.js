@@ -88,15 +88,17 @@ function drawList() {
         })
         .forEach((todo) => {
                 const newToDo = `
-                <div class="row"><li id="${todo.id}" onclick="toggleCompleted(${todo.id})" class="${todo.completed ? "completed" : ""} ">
+                <div class="row">
                     <!--conditionally show editing or not editing version -->
                     ${editingActiveId===todo.id?`
+                    <li id="${todo.id}" class="${todo.completed ? "completed" : ""} ">
                     <input type='text' value=${todo.text} id="newText"></input></li>
                     <div class=buttons>
                     <button id=priority>${["must", "should","could"][todo.priority]}</button>
                     <button onclick="saveToDoListItem(${todo.id})" class="save-button">Save</button>
                     `
-                    :`${todo.text}</li><div class=buttons>
+                    :`<li id="${todo.id}" onclick="toggleCompleted(${todo.id})" class="${todo.completed ? "completed" : ""} ">
+                    ${todo.text}</li><div class=buttons>
                     <button id=priority>${["must", "should","could"][todo.priority]}</button>
                     <button onclick="editToDoListItem(${todo.id})" class="edit-button">Edit</button>
                     `
@@ -120,15 +122,17 @@ function drawList() {
         })
         .forEach((todo) => {
                 const newToDo = `
-                <div class="row"><li id="${todo.id}" onclick="toggleCompleted(${todo.id})" class="${todo.completed ? "completed" : ""} ">
+                <div class="row">
                     <!--conditionally show editing or not editing version -->
                     ${editingActiveId===todo.id?`
+                    <li id="${todo.id}" class="${todo.completed ? "completed" : ""} ">
                     <input type='text' value=${todo.text} id="newText"></input></li>
                     <div class=buttons>
                     <button id=priority>${["must", "should","could"][todo.priority]}</button>
                     <button onclick="saveToDoListItem(${todo.id})" class="save-button">Save</button>
                     `
-                    :`${todo.text}</li><div class="buttons">
+                    :`<li id="${todo.id}" onclick="toggleCompleted(${todo.id})" class="${todo.completed ? "completed" : ""} ">
+                    ${todo.text}</li><div class="buttons">
                     <button id=priority>${["must", "should","could"][todo.priority]}</button>
                     <button onclick="editToDoListItem(${todo.id})" class="edit-button">Edit</button>
                     `
