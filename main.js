@@ -88,21 +88,21 @@ function drawList() {
         })
         .forEach((todo) => {
                 const newToDo = `
-                <li id="${todo.id}" onclick="toggleCompleted(${todo.id})" class="${todo.completed ? "completed" : ""} ">
+                <div class="row"><li id="${todo.id}" onclick="toggleCompleted(${todo.id})" class="${todo.completed ? "completed" : ""} ">
                     <!--conditionally show editing or not editing version -->
                     ${editingActiveId===todo.id?`
-                    <input type='text' value=${todo.text} id="newText"></input>
+                    <input type='text' value=${todo.text} id="newText"></input></li>
                     <div class=buttons>
+                    <button id=priority>${["must", "should","could"][todo.priority]}</button>
                     <button onclick="saveToDoListItem(${todo.id})" class="save-button">Save</button>
                     `
-                    :`${todo.text}<div class=buttons>
+                    :`${todo.text}</li><div class=buttons>
                     <button id=priority>${["must", "should","could"][todo.priority]}</button>
                     <button onclick="editToDoListItem(${todo.id})" class="edit-button">Edit</button>
                     `
                     }
                     <button onclick="removeToDoListItem(${todo.id})" class="delete-button">X</button>
-                    </div>
-                </li>`;
+                    </div></div>`;
                 notCompleted.insertAdjacentHTML("beforeend", newToDo);
     });
     filteredTodos
@@ -120,21 +120,21 @@ function drawList() {
         })
         .forEach((todo) => {
                 const newToDo = `
-                <li id="${todo.id}" onclick="toggleCompleted(${todo.id})" class="${todo.completed ? "completed" : ""} ">
+                <div class="row"><li id="${todo.id}" onclick="toggleCompleted(${todo.id})" class="${todo.completed ? "completed" : ""} ">
                     <!--conditionally show editing or not editing version -->
                     ${editingActiveId===todo.id?`
-                    <input type='text' value=${todo.text} id="newText"></input>
+                    <input type='text' value=${todo.text} id="newText"></input></li>
                     <div class=buttons>
+                    <button id=priority>${["must", "should","could"][todo.priority]}</button>
                     <button onclick="saveToDoListItem(${todo.id})" class="save-button">Save</button>
                     `
-                    :`${todo.text}<div class="buttons">
+                    :`${todo.text}</li><div class="buttons">
                     <button id=priority>${["must", "should","could"][todo.priority]}</button>
                     <button onclick="editToDoListItem(${todo.id})" class="edit-button">Edit</button>
                     `
                     }
                     <button onclick="removeToDoListItem(${todo.id})" class="delete-button">X</button>
-                    </div>
-                </li>`;
+                    </div></div>`;
                 completed.insertAdjacentHTML("beforeend", newToDo);
     });
 }
