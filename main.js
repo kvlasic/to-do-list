@@ -92,13 +92,16 @@ function drawList() {
                     <!--conditionally show editing or not editing version -->
                     ${editingActiveId===todo.id?`
                     <input type='text' value=${todo.text} id="newText"></input>
+                    <div class=buttons>
                     <button onclick="saveToDoListItem(${todo.id})" class="save-button">Save</button>
                     `
-                    :`${todo.text} <button id=priority>${["must", "should","could"][todo.priority]}</button>
+                    :`${todo.text}<div class=buttons>
+                    <button id=priority>${["must", "should","could"][todo.priority]}</button>
                     <button onclick="editToDoListItem(${todo.id})" class="edit-button">Edit</button>
                     `
                     }
                     <button onclick="removeToDoListItem(${todo.id})" class="delete-button">X</button>
+                    </div>
                 </li>`;
                 notCompleted.insertAdjacentHTML("beforeend", newToDo);
     });
@@ -121,7 +124,7 @@ function drawList() {
                     <!--conditionally show editing or not editing version -->
                     ${editingActiveId===todo.id?`
                     <input type='text' value=${todo.text} id="newText"></input>
-                    <div class="buttons">
+                    <div class=buttons>
                     <button onclick="saveToDoListItem(${todo.id})" class="save-button">Save</button>
                     `
                     :`${todo.text}<div class="buttons">
