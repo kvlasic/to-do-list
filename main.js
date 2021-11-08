@@ -92,7 +92,7 @@ function drawList() {
                     <!--conditionally show editing or not editing version -->
                     ${editingActiveId===todo.id?`
                     <li id="${todo.id}" class="${todo.completed ? "completed" : ""} ">
-                    <input type='text' value=${todo.text} id="newText"></input></li>
+                    <input type='text' value='${todo.text}' id="newText"></input></li>
                     <div class=buttons>
                     <button id=priority>${["must", "should","could"][todo.priority]}</button>
                     <button onclick="saveToDoListItem(${todo.id})" class="save-button">Save</button>
@@ -126,7 +126,7 @@ function drawList() {
                     <!--conditionally show editing or not editing version -->
                     ${editingActiveId===todo.id?`
                     <li id="${todo.id}" class="${todo.completed ? "completed" : ""} ">
-                    <input type='text' value=${todo.text} id="newText"></input></li>
+                    <input type='text' value='${todo.text}' id="newText"></input></li>
                     <div class=buttons>
                     <button id=priority>${["must", "should","could"][todo.priority]}</button>
                     <button onclick="saveToDoListItem(${todo.id})" class="save-button">Save</button>
