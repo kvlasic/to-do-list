@@ -32,7 +32,9 @@ ul {
 .submit,
 .delete-button,
 .edit-button,
-.save-button {
+.save-button,
+#delCompleted,
+#delEverything {
     background-color: rgb(53, 53, 53);
     border: 1px solid rgba(0, 0, 0, 0.1);
     border-radius: 0.3rem;
@@ -74,6 +76,12 @@ select,
 .delete-button {
     background-color: rgba(255, 99, 71, 1);
     margin-right: 0;
+}
+
+#delCompleted,
+#delEverything {
+    width: 100%;
+    margin-top: 10px;
 }
 
 form,

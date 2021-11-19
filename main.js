@@ -71,6 +71,22 @@ function updateToDoListItem(id, newData) {
     filterTodos(); // draw filtered todos as todos have been updated
 }
 
+function deleteCompleted() {
+    todos = todos.filter((todo) => {
+        return !todo.completed
+    })
+    localStorage.setItem("todos", JSON.stringify(todos));
+    filterTodos();
+    drawList();
+}
+
+function deleteEverything() {
+    todos = [];
+    localStorage.setItem("todos", JSON.stringify(todos));
+    filterTodos();
+    drawList();
+}
+
 // update the whole list
 function drawList() {
     ul.innerHTML = "";
